@@ -5,10 +5,16 @@ import designImage from './assets/images/design.svg'
 import innovationImage from './assets/images/innovation.svg'
 import webLogo from './assets/images/logo.svg'
 import stelcorePC1 from './assets/images/pc.svg'
+import workstation from './assets/images/workstation.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faTwitter, faLinkedinIn, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 function Navbar() {
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <nav className="Navbar">
       <div className="logo">
@@ -17,10 +23,10 @@ function Navbar() {
       </div>
       <div className="nav">
         <ul>
-          <li><a href="home">Home</a></li>
-          <li><a href="about">About</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">Products</a></li>
+          <li><a onClick={() => scrollToSection('home')} style={{cursor: 'pointer'}}>Home</a></li>
+          <li><a onClick={() => scrollToSection('about')} style={{cursor: 'pointer'}}>About</a></li>
+          <li><a onClick={() => scrollToSection('contact')} style={{cursor: 'pointer'}}>Contact</a></li>
+          <li><a onClick={() => scrollToSection('products')} style={{cursor: 'pointer'}}>Products</a></li>
         </ul>
       </div>
     </nav>
@@ -73,7 +79,7 @@ function Products() {
     },
     {
       name: "STELCORE Workstation",
-      image: stelcorePC,
+      image: workstation,
       specs: [
         "AMD Ryzen 9 7950X",
         "NVIDIA RTX 4080 16GB",
@@ -96,7 +102,7 @@ function Products() {
   ];
 
   return (
-    <section className="products">
+    <section id="products" className="products">
       <h2>Our Products</h2>
       <div className="product-grid">
         {products.map((product, index) => (
@@ -107,7 +113,7 @@ function Products() {
   );
 }
 
-// Create a reusable ProductCard component
+
 function ProductCard({ name, image, specs, price }) {
   return (
     <div className="product-card">
@@ -221,8 +227,10 @@ function About() {
         <div className="product-showcase">
           <img src={stelcorePC} alt="STELCORE PC" className="showcase-image" />
           <div className="feature-highlight">
-            <h3>Advanced Cooling System</h3>
-            <p>STELCORE ColdFront technology: Revolutionary thermal design with dual fans and independent cooling chambers. Maintains optimal temperature under heavy loads, reducing system noise by 25% and increasing performance by up to 15%.</p>
+            <div className="feature-box">
+              <h3>Advanced Cooling System</h3>
+              <p>STELCORE ColdFront technology: Revolutionary thermal design with dual fans and independent cooling chambers. Maintains optimal temperature under heavy loads, reducing system noise by 25% and increasing performance by up to 15%.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -233,7 +241,7 @@ function About() {
 
 function Contact() {
   return (
-    <section className="contact">
+    <section id="contact" className="contact">
       <div className="contact-container">
         <h2>Get in Touch</h2>
         <p className="contact-subtitle">Have questions? We'd love to hear from you.</p>

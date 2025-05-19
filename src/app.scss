@@ -1,10 +1,12 @@
-// Modern light theme color palette
-$primary-color: #ffffff;    // White background
-$secondary-color: #f5f5f5;  // Light gray for sections
-$tertiary-color: #e0e0e0;   // Darker gray for cards
-$accent-color: #007aff;     // Blue accent for highlights
-$text-color: #333333;       // Dark text
-$muted-color: #666666;      // Muted text
+@use "sass:color";
+
+
+$primary-color: #ffffff;   
+$secondary-color: #c4bfbf;  
+$tertiary-color: #919191; 
+$accent-color: #007aff;    
+$text-color: #333333;       
+$muted-color: #666666;      
 $font-size: 24px;
 
 @mixin basic-layout {
@@ -136,12 +138,11 @@ body {
   }
 }
 
-// Add smooth scrolling to the whole page
+
 html {
   scroll-behavior: smooth;
 }
 
-// Add some global styles
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -503,6 +504,34 @@ html {
           transform: translateY(-2px);
         }
       }
+    }
+  }
+}
+
+.feature-highlight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  
+  .feature-box {
+    max-width: 600px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+    h3 {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    
+    p {
+      color: #666;
+      line-height: 1.6;
     }
   }
 }
